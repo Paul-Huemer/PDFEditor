@@ -1,0 +1,20 @@
+{
+  "name": "pdf-editor",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A simple, offline PDF editor that runs in the browser.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^6.4.299"
+  },
+  "devDependencies": {
+    "vite": "^8.3.4",
+    "vite-plugin-singlefile": "^2.3.3"
+  }
+}

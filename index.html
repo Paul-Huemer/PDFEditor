@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PDF Editor</title>
+</head>
+<body>
+  <header id="toolbar">
+    <div class="group">
+      <button id="open">Open</button>
+      <button id="add" data-needs-doc title="Insert another PDF after the selected page">Add PDF</button>
+      <button id="save" data-needs-doc class="primary">Save</button>
+    </div>
+    <div class="group" data-needs-doc>
+      <button id="rot-left" data-needs-sel title="Rotate left">↺</button>
+      <button id="rot-right" data-needs-sel title="Rotate right">↻</button>
+      <button id="del" data-needs-sel title="Delete selected pages">Delete</button>
+      <button id="blank" title="Insert blank page">Blank page</button>
+      <button id="extract" data-needs-sel title="Save selected pages as a new PDF">Extract</button>
+    </div>
+    <div class="group tools" data-needs-doc>
+      <button data-tool="select" class="active">Select</button>
+      <button data-tool="edit" title="Click existing text to change it">Edit text</button>
+      <button data-tool="text" title="Click on a page to add text">Add text</button>
+      <button data-tool="whiteout" title="Drag to cover content">Whiteout</button>
+      <button data-tool="highlight" title="Drag to highlight">Highlight</button>
+      <button id="image" title="Add an image to the current page">Image</button>
+    </div>
+    <div class="group" id="textprops" hidden>
+      <select id="font" title="Font">
+        <option value="sans">Sans</option>
+        <option value="serif">Serif</option>
+        <option value="mono">Mono</option>
+      </select>
+      <input id="size" type="number" min="4" max="200" step="1" value="12" title="Font size">
+      <input id="color" type="color" value="#000000" title="Color">
+      <button id="bold" title="Bold"><b>B</b></button>
+    </div>
+    <div class="group" data-needs-doc>
+      <button id="undo" title="Undo (Ctrl+Z)">Undo</button>
+      <button id="redo" title="Redo (Ctrl+Y)">Redo</button>
+    </div>
+    <div class="group" data-needs-doc>
+      <button id="zoom-out" title="Zoom out">−</button>
+      <button id="zoom-fit" title="Fit width"><span id="zoom-label">100%</span></button>
+      <button id="zoom-in" title="Zoom in">+</button>
+    </div>
+  </header>
+  <main>
+    <aside id="thumbs"></aside>
+    <section id="viewer">
+      <div id="empty">
+        <p>Open a PDF or drop it here.</p>
+        <button id="open2" class="primary">Open PDF</button>
+      </div>
+      <div id="pages"></div>
+    </section>
+  </main>
+  <input id="file-pdf" type="file" accept="application/pdf,.pdf" multiple hidden>
+  <input id="file-img" type="file" accept="image/*" hidden>
+  <div id="toast" hidden></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
